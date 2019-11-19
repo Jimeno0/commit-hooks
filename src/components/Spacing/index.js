@@ -8,7 +8,7 @@ const borderStyles = css`
 const verticalStyles = css`
   margin-bottom: 0px;
   flex-shrink: 0;
-  ${({ size }) => `width:${size}px;`}
+  ${({ size }) => `width:${size};`}
 `
 
 const StyledSpacing = styled.div`
@@ -22,7 +22,7 @@ const StyledSpacing = styled.div`
 const Spacing = (props) => <StyledSpacing {...props} />
 
 Spacing.defaultProps = {
-  size: '24'
+  size: '24px'
 }
 
 export { Spacing }
