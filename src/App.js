@@ -1,25 +1,15 @@
 import React, { Component, useState, useContext, useEffect } from 'react'
-import { css } from 'styled-components'
 import { ThemeContext } from './context'
 import {
-  Background,
   Sidebar,
   MonogramLogo,
   Spacing,
-  MadridLogo,
-  Pattern,
   ReactLogo,
-  Text,
   Avatar,
+  Title,
   Layout
 } from './components'
 import { Toggle } from './containers'
-
-const titleStyles = {
-  position: 'fixed',
-  top: '20vh',
-  padding: '16px 0 16px 500px'
-}
 
 const App = (props) => {
   const scroll = useScroll(0)
@@ -27,20 +17,13 @@ const App = (props) => {
   const { value } = useContext(ThemeContext)
 
   return (
-    <Layout>
+    <Layout theme={value}>
       <Sidebar />
       <Toggle />
-      {/* <Background scroll={scroll} /> */}
-      {/* <Pattern /> */}
-      <div style={titleStyles}>
-        <Text shadow bold color='white' size='44'>React hooks</Text>
-        <Spacing size='16px' />
-        <Text shadow color='white' size='24'>bye bye to classes </Text>
-      </div>
+      <Title />
+      <Avatar />
       <MonogramLogo scroll={scroll} />
-      <Avatar scroll={scroll} />
       <ReactLogo scroll={scroll} />
-      {/* <MadridLogo scroll={scroll} /> */}
       <Spacing id='scroll' size='200vh' />
     </Layout>
   )
