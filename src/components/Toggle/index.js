@@ -16,10 +16,10 @@ const ToggleComponent = (props) => {
       <Switch
         onChange={onChange}
         checked={checked}
-        onColor='#282c34'
-        offColor='#BBB8B2'
-        offHandleColor='#282c34'
-        onHandleColor='#BBB8B2'
+        onColor='#342E37'
+        offColor='#FFE8D1'
+        offHandleColor='#342E37'
+        onHandleColor='#FFE8D1'
         checkedIcon={false}
         uncheckedIcon={false}
       />

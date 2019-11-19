@@ -2,7 +2,7 @@ import React, { Component, useState, useContext, useEffect } from 'react'
 import { ThemeContext } from './context'
 import {
   Sidebar,
-  MonogramLogo,
+  CommitLogo,
   Spacing,
   ReactLogo,
   Avatar,
@@ -20,9 +20,9 @@ const App = (props) => {
     <Layout theme={value}>
       <Sidebar />
       <Toggle />
-      <Title />
-      <Avatar />
-      <MonogramLogo scroll={scroll} />
+      <Title theme={value} />
+      <Avatar theme={value} />
+      <CommitLogo scroll={scroll} />
       <ReactLogo scroll={scroll} />
       <Spacing id='scroll' size='200vh' />
     </Layout>

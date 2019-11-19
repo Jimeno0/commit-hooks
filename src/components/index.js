@@ -1,6 +1,6 @@
 export * from './Layout'
 export * from './Spacing'
-export * from './MonogramLogo'
+export * from './CommitLogo'
 export * from './Toggle'
 export * from './ReactLogo'
 export * from './Sidebar'
