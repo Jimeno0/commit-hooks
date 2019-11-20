@@ -11,78 +11,78 @@ import {
 } from './components'
 import { Toggle } from './containers'
 
-const App = (props) => {
-  const scroll = useScroll(0)
-  // const scroll = 0
-  const { value } = useContext(ThemeContext)
-
-  return (
-    <Layout theme={value}>
-      <Sidebar />
-      <Toggle />
-      <Title theme={value} />
-      <Avatar theme={value} />
-      <CommitLogo scroll={scroll} />
-      <ReactLogo scroll={scroll} />
-      <Spacing id='scroll' size='200vh' />
-    </Layout>
-  )
-}
-
-const useScroll = (inialValue) => {
-  const [scroll, setScroll] = useState(inialValue)
-
-  const handleScroll = (e) => {
-    const height = e.target.scrollTop
-    setScroll(height)
+class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      scroll: 0
+    }
+    this.handleScroll = this.handleScroll.bind(this)
   }
 
-  useEffect(() => {
-    document.addEventListener('scroll', handleScroll, true)
-    return () => {
-      document.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  componentDidMount () {
+    document.addEventListener('scroll', this.handleScroll, true)
+  }
 
-  return scroll
+  handleScroll (e) {
+    const height = e.target.scrollTop
+    this.setState({ scroll: height })
+  }
+
+  componentWillUnmount () {
+    document.removeEventListener('scroll', this.handleScroll)
+  }
+
+  render () {
+    const { scroll } = this.state
+    return (
+      <Layout>
+        <Sidebar />
+        <Toggle />
+        <Title />
+        <Avatar />
+        <CommitLogo scroll={scroll} />
+        <ReactLogo scroll={scroll} />
+        <Spacing id='scroll' size='200vh' />
+      </Layout>
+    )
+  }
 }
 
-// class App extends Component {
-//   constructor (props) {
-//     super(props)
-//     this.state = {
-//       scroll: 0
-//     }
-//     this.handleScroll = this.handleScroll.bind(this)
-//   }
+// const App = (props) => {
+//   const scroll = useScroll(0)
+//   // const scroll = 0
+//   const { value } = useContext(ThemeContext)
 
-//   componentDidMount () {
-//     document.addEventListener('scroll', this.handleScroll, true)
-//   }
+//   return (
+//     <Layout>
+//       <Sidebar />
+//       <Toggle />
+//       <Title theme={value} />
+//       <Avatar theme={value} />
+//       <CommitLogo scroll={scroll} />
+//       <ReactLogo scroll={scroll} />
+//       <Spacing id='scroll' size='200vh' />
+//     </Layout>
+//   )
+// }
 
-//   handleScroll (e) {
+// const useScroll = (inialValue) => {
+//   const [scroll, setScroll] = useState(inialValue)
+
+//   const handleScroll = (e) => {
 //     const height = e.target.scrollTop
-//     this.setState({ scroll: height })
+//     setScroll(height)
 //   }
 
-//   componentWillUnmount () {
-//     document.removeEventListener('scroll', this.handleScroll)
-//   }
+//   useEffect(() => {
+//     document.addEventListener('scroll', handleScroll, true)
+//     return () => {
+//       document.removeEventListener('scroll', handleScroll)
+//     }
+//   }, [])
 
-//   render () {
-//     const { scroll } = this.state
-//     return (
-//       <Layout>
-//         <Toggle />
-//         <Background scroll={scroll} />
-//         <Pattern />
-//         <MonogramLogo scroll={scroll} />
-//         <ReactLogo scroll={scroll} />
-//         <MadridLogo scroll={scroll} />
-//         <Spacing id='scroll' size='200vh' />
-//       </Layout>
-//     )
-//   }
+//   return scroll
 // }
 
 export default App
