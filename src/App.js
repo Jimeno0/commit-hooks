@@ -49,40 +49,4 @@ class App extends Component {
   }
 }
 
-// const App = (props) => {
-//   const scroll = useScroll(0)
-//   // const scroll = 0
-//   const { value } = useContext(ThemeContext)
-
-//   return (
-//     <Layout>
-//       <Sidebar />
-//       <Toggle />
-//       <Title theme={value} />
-//       <Avatar theme={value} />
-//       <CommitLogo scroll={scroll} />
-//       <ReactLogo scroll={scroll} />
-//       <Spacing id='scroll' size='200vh' />
-//     </Layout>
-//   )
-// }
-
-// const useScroll = (inialValue) => {
-//   const [scroll, setScroll] = useState(inialValue)
-
-//   const handleScroll = (e) => {
-//     const height = e.target.scrollTop
-//     setScroll(height)
-//   }
-
-//   useEffect(() => {
-//     document.addEventListener('scroll', handleScroll, true)
-//     return () => {
-//       document.removeEventListener('scroll', handleScroll)
-//     }
-//   }, [])
-
-//   return scroll
-// }
-
 export default App
