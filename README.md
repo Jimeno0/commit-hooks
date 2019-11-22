@@ -11,5 +11,5 @@ Code about React hooks used in the commit conf talk about it [commitconf talk](h
 ### branches
 
 * `master` with the initial demo code
-* `refactored-to-hooks` with the demo code completed
+* `feature/classComponents` with the demo code completed
 
