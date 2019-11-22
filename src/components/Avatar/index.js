@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import avatar from './avatar-emoji.png'
+import avatar from './emoji-mustache.webp'
 import { Text } from '../Text'
 import { Spacing } from '../Spacing'
 

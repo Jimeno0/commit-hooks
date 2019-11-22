@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Text } from '../Text'
 import { Spacing } from '../Spacing'
+import { ThemeContext } from '../../context'
 
 const Wrapper = styled.div`
   position: fixed;
