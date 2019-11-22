@@ -3,8 +3,8 @@ import { ToggleComponent } from '../../components'
 import { ThemeContext } from '../../context'
 
 class Toggle extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = { checked: false }
     this.handleChange = this.handleChange.bind(this)
   }
