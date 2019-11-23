@@ -16,8 +16,9 @@ const getThemeColor = (theme) => {
   return 'white'
 }
 
-const Title = ({ theme }) => {
-  const color = getThemeColor(theme)
+const Title = () => {
+  const { value } = useContext(ThemeContext)
+  const color = getThemeColor(value)
   return (
     <Wrapper>
       <Text shadow bold color={color} size='60'>React hooks</Text>
