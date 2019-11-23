@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Text } from '../Text'
 import { Spacing } from '../Spacing'
+import { ThemeContext } from '../../context'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -15,8 +16,9 @@ const getThemeColor = (theme) => {
   return 'white'
 }
 
-const Title = ({ theme }) => {
-  const color = getThemeColor(theme)
+const Title = () => {
+  const { value } = useContext(ThemeContext)
+  const color = getThemeColor(value)
   return (
     <Wrapper>
       <Text shadow bold color={color} size='60'>React hooks</Text>

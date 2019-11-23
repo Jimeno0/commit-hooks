@@ -3,29 +3,25 @@ import { ToggleComponent } from '../../components'
 import { ThemeContext } from '../../context'
 
 const Toggle = (props) => {
-  const handleCheck = useCheck(false)
+  const [checked, setChecked] = useState(false)
+  const { setValue } = useContext(ThemeContext)
+
+  const handleChange = (checked) => {
+    if (checked) setValue('light')
+    if (!checked) setValue('dark')
+    setChecked(checked)
+  }
   return (
     <ToggleComponent
-      {...handleCheck}
+      checked={checked}
+      onChange={handleChange}
     />
   )
 }
 
-const useCheck = (inialValue) => {
-  const [checked, onChange] = useState(inialValue)
-  const { setValue } = useContext(ThemeContext)
-
-  const handleCheck = (checked) => {
-    if(checked) setValue('light')
-    if(!checked) setValue('dark')
-    onChange(checked)
-  }
-  return { checked, onChange: handleCheck }
-}
-
 // class Toggle extends Component {
-//   constructor () {
-//     super()
+//   constructor (props) {
+//     super(props)
 //     this.state = { checked: false }
 //     this.handleChange = this.handleChange.bind(this)
 //   }
